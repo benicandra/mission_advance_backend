@@ -1,0 +1,53 @@
+### Test API mneggunakan Postman
+
+# Test Root Endpoint
+GET http://localhost:3000/
+
+###
+
+# Test Register
+POST http://localhost:3000/api/auth/register
+json
+
+{
+  "fullname": "Test User",
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+###
+
+# Test Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+###
+
+# Test Courses
+GET http://localhost:3000/api/courses/
+Authorization: Bearer <your_token_here>
+
+###
+
+# Test Upload
+POST http://localhost:3000/api/upload/upload
+Headers:  
+1 Authorization: Bearer {{token}}
+2 Content-Type: multipart/form-data
+Body (pilih form-data):    
+- Key: file
+- Type: File
+- Value: Pilih file gambar dari komputer Anda
+
+Requirements File:
+Tipe: JPG, JPEG, PNG
+Ukuran: Max 5MB
+Tidak support: PDF, DOCX, dll
+
+###
